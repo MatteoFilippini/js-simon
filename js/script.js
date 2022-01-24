@@ -19,15 +19,26 @@ const getRandomNumebers = () => {
 }
 
 // GENREO 5 NUMERI RANDOM
-console.log(getRandomNumebers());
+console.log('random ' + getRandomNumebers());
+
+const userArray = [];
+let flag = 0;
+//dopo 3 secondi fai...
+setTimeout(() => {
+    // chiedi all'utente di inserire un numero
+    for (let i = 0; i < 5; i++) {
+        const n = parseInt(prompt(`Inserisci un numero`));
+        userArray.push(n);
+        // controlla che sia presente nell array
+        if (array.includes(n)) {
+            flag++;
+        }
+    }
+    console.log('user ' + userArray);
+    console.log('hai indovinato ' + flag + ' numeri');
+}, 3000);
 
 
-// setTimeout(() => {
-//     for (let i = 1; i < 6; i++) {
-//         const n = parseInt(prompt(`Inserisci il ${i} numero`));
-//         console.log(n)
-//     }
-// }, 3000);
 
 
 
