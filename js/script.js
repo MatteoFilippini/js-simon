@@ -18,6 +18,9 @@ const getRandomNumebers = () => {
     return array;
 }
 
+// PRENDO GLI ELEMENTI DEL DOM DOVE STAMPARE
+const display = document.getElementById('display');
+
 // GENEREO 5 NUMERI RANDOM
 console.log('random ' + getRandomNumebers());
 alert('random ' + getRandomNumebers());
@@ -38,10 +41,12 @@ setTimeout(() => {
             winArray.push(n);
         }
     }
-    console.log('user ' + userArray);
+    display.innerText = `Hai inserito i numeri: ` + userArray;
+    // console.log('user ' + userArray);
     console.log(`${message} ${flag} numeri`);
-    console.log('Numeri indovinato i numeri: ' + winArray)
-}, 3000);
+
+    console.log('I numeri indovinati sono: ' + winArray)
+}, 200);
 
 
 
