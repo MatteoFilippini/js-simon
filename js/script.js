@@ -18,11 +18,14 @@ const getRandomNumebers = () => {
     return array;
 }
 
-// GENREO 5 NUMERI RANDOM
+// GENEREO 5 NUMERI RANDOM
 console.log('random ' + getRandomNumebers());
+alert('random ' + getRandomNumebers());
 
 const userArray = [];
 let flag = 0;
+let message = 'Hai indovinato';
+const winArray = [];
 //dopo 3 secondi fai...
 setTimeout(() => {
     // chiedi all'utente di inserire un numero
@@ -32,10 +35,12 @@ setTimeout(() => {
         // controlla che sia presente nell array
         if (array.includes(n)) {
             flag++;
+            winArray.push(n);
         }
     }
     console.log('user ' + userArray);
-    console.log('hai indovinato ' + flag + ' numeri');
+    console.log(`${message} ${flag} numeri`);
+    console.log('Numeri indovinato i numeri: ' + winArray)
 }, 3000);
 
 
