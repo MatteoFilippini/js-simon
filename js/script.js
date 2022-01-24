@@ -20,6 +20,7 @@ const getRandomNumebers = () => {
 
 // PRENDO GLI ELEMENTI DEL DOM DOVE STAMPARE
 const display = document.getElementById('display');
+const rand = document.getElementById('rand');
 
 // GENEREO 5 NUMERI RANDOM
 console.log('random ' + getRandomNumebers());
@@ -41,12 +42,33 @@ setTimeout(() => {
             winArray.push(n);
         }
     }
-    display.innerText = `Hai inserito i numeri: ` + userArray;
-    // console.log('user ' + userArray);
-    console.log(`${message} ${flag} numeri`);
+    // mostro all'utente i numeri che ha inserito
+    display.innerHTML = `Hai inserito i numeri: ` + userArray + ` vediamo quanti ne hai indovinati...<br>`;
+    // ogni secondo mostro uno dei 5 numeri estratti a caso
+    const displayText = (str) => {
+        rand.innerHTML += str + ' ';
+    }
+    let i = 0;
+    const timedLoop = () => {
+        setTimeout(() => {
+            displayText(array[i]);
+            i++;
+            if (i < array.length) {
+                timedLoop();
+            }
+        }, 1000)
+    }
+    timedLoop();
+    //  dopo 2 secondi mostro se e quanti numeri ha indovinato
+    setTimeout(() => {
+        display.append(`${message} ${flag} numeri (${winArray})`);
+    }, array.length * 1000 + 1000);
 
-    console.log('I numeri indovinati sono: ' + winArray)
-}, 200);
+
+
+
+
+}, 500);
 
 
 
