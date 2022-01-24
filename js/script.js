@@ -6,16 +6,28 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 */
 
 
-// FUNZIONE NUMERO RANDOM
+// FUNZIONE NUMERO RANDOM (genera 5 numeri diversi)
+const array = [];
 const getRandomNumebers = () => {
-    const r = Math.floor(Math.random() * 10) + 1;
-    return r;
+    for (let i = 0; array.length < 5; i++) {
+        const r = Math.floor(Math.random() * 10) + 1;
+        if (!(array.includes(r))) {
+            array.push(r);
+        }
+    }
+    return array;
 }
 
 // GENREO 5 NUMERI RANDOM
-for (let i = 0; i < 5; i++) {
-    console.log(getRandomNumebers());
-}
+console.log(getRandomNumebers());
+
+
+// setTimeout(() => {
+//     for (let i = 1; i < 6; i++) {
+//         const n = parseInt(prompt(`Inserisci il ${i} numero`));
+//         console.log(n)
+//     }
+// }, 3000);
 
 
 
