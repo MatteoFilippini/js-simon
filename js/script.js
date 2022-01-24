@@ -23,7 +23,7 @@ const display = document.getElementById('display');
 const rand = document.getElementById('rand');
 
 // GENEREO 5 NUMERI RANDOM
-console.log('random ' + getRandomNumebers());
+console.log('Memorizza questi ' + getRandomNumebers());
 alert('random ' + getRandomNumebers());
 
 const userArray = [];
@@ -45,13 +45,20 @@ setTimeout(() => {
     // mostro all'utente i numeri che ha inserito
     display.innerHTML = `Hai inserito i numeri: ` + userArray + ` vediamo quanti ne hai indovinati...<br>`;
     // ogni secondo mostro uno dei 5 numeri estratti a caso
-    const displayText = (str) => {
-        rand.innerHTML += str + ' ';
+    const displayText = (str, array) => {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === str) {
+                rand.innerHTML += `<span class='red'>${str}</span>` + ' ';
+
+            } else {
+                rand.innerHTML += str + ' ';
+            }
+        }
     }
     let i = 0;
     const timedLoop = () => {
         setTimeout(() => {
-            displayText(array[i]);
+            displayText(array[i], userArray);
             i++;
             if (i < array.length) {
                 timedLoop();
